@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="contact.css">
+    <!-- <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js"> </script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js"></script> -->
+    <title>Contact Us</title>
+
+</head>
+
+<body class="bg-secondary">
+
+    <div id="form" class="p-5 m-5 bg-light rounded">
+        <label>User name</label>
+        <input type="name" class="form-control" id="name" aria-describedby="name">
+        <div>
+            <label>Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+            <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" class="form-control" id="password">
+        </div>
+        <br>
+        <button onclick="saveData()" type="saveData" class="btn btn-primary">Submit</button>
+
+    </div>
+
+
+
+
+    <script >
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyA-dU2EBD2OIv2PCDTl_IXHh-FW6MOLTxU",
+            authDomain: "coffee-contact-form.firebaseapp.com",
+            projectId: "coffee-contact-form",
+            storageBucket: "coffee-contact-form.appspot.com",
+            messagingSenderId: "453721489427",
+            appId: "1:453721489427:web:e28208820761aa8e093fe6",
+            measurementId: "G-KRL0VYWPPQ"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        console.log(app)
+
+
+        function saveData() {
+            console.log("saveData is runing...")
+
+            var name = document.getElementById('name');
+            var email = document.getElementById('email');
+            var password = document.getElementById('password');
+
+            var user = {
+                name: name.value,
+                email: email.value,
+                passowrd: password.value,
+            }
+            console.log(user)
+            // ref.push(
+            //     {
+            //         name : name,
+            //         email : email,
+            //         password : password,
+            //     }
+            // )
+            // firebase.database().ref('user').set(user)
+        }
+        ;
+
+    </script>
+
+
+
+    <!-- <scrip type="module"  src="contact.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
